@@ -1,7 +1,5 @@
 from selenium import webdriver
-import os
-
-PASSWORD = os.getenv("PASSWORD")
+import creds
 
 uofg = webdriver.Chrome()
 uofg.get('https://www.gla.ac.uk/apps/uofglife/#/login')
@@ -12,7 +10,7 @@ guid = uofg.find_element_by_xpath('//*[@id="guid"]')
 guid.send_keys('2552805d')
 
 password = uofg.find_element_by_xpath('//*[@id="password"]')
-password.send_keys(PASSWORD)
+password.send_keys(creds.password)
 
 login = uofg.find_element_by_xpath('//*[@id="app"]/div[3]/main/button')
 login.click()
